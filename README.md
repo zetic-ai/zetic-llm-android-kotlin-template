@@ -80,32 +80,34 @@ object Constants {
 }
 ```
 
-### 3. Customize App Details
 
-Update the following files:
+### 3. Customize Quant Type
+Update Quantization in `app/src/main/java/com/zeticai/zeticmlangellmsample/MainActivity.kt`
 
-#### `app/build.gradle.kts`
 ```kotlin
-android {
-    namespace = "com.zeticai.zeticmlangellmsample" // Change this
-    compileSdk = 35
-    
-    defaultConfig {
-        applicationId = "com.zeticai.zeticmlangellmsample" // Change this
-        minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
-    }
-}
+// ...
+private val model: ZeticMLangeLLMModel by lazy {
+    ZeticMLangeLLMModel(
+        this,
+        Constants.MLANGE_PERSONAL_ACCESS_TOKEN,
+        Constants.MODEL_KEY,
+        LLMTarget.LLAMA_CPP,
+        LLMQuantType.GGUF_QUANT_Q4_K_M // Change Quant type what you want
+    ) {
+    // ...
 ```
 
-#### `app/src/main/res/values/strings.xml`
-```xml
-<resources>
-    <string name="app_name">ZeticMLangeLLMSample</string> <!-- Change this -->
-</resources>
-```
+#### Available Quant Types
+- LLMQuantType.GGUF_QUANT_F16
+- LLMQuantType.GGUF_QUANT_BF16
+- LLMQuantType.GGUF_QUANT_Q8_0
+- LLMQuantType.GGUF_QUANT_Q6_K
+- LLMQuantType.GGUF_QUANT_Q4_K_M
+- LLMQuantType.GGUF_QUANT_Q3_K_M
+- LLMQuantType.GGUF_QUANT_Q2_K
+- LLMQuantType.GGUF_QUANT_Q6_K
+
+Check it out [Zetic Model Hub](https://mlange.zetic.ai/dashboard).
 
 ### 4. Build and Run
 
