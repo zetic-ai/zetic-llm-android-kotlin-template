@@ -33,9 +33,7 @@ class MainActivity : AppCompatActivity() {
         ZeticMLangeLLMModel(
             this,
             Constants.MLANGE_PERSONAL_ACCESS_TOKEN,
-            Constants.MODEL_KEY,
-            LLMTarget.LLAMA_CPP,
-            LLMQuantType.GGUF_QUANT_Q4_K_M
+            Constants.MODEL_NAME
         ) {
             runOnUiThread {
                 binding.messageInput.hint = "File Downloading... ${it * 100f}%"
