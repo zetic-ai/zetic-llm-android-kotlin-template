@@ -76,7 +76,7 @@ Update your SDK credentials in `app/src/main/java/com/zeticai/zeticmlangellmsamp
 object Constants {
     // TODO: Replace with your actual Credentials
     const val MLANGE_PERSONAL_ACCESS_TOKEN = "YOUR_PERSONAL_ACCESS_TOKEN"
-    const val MODEL_KEY = "YOUR_MODEL_KEY"
+    const val MODEL_NAME = "YOUR_MODEL_NAME"
 }
 ```
 
@@ -90,7 +90,7 @@ private val model: ZeticMLangeLLMModel by lazy {
     ZeticMLangeLLMModel(
         this,
         Constants.MLANGE_PERSONAL_ACCESS_TOKEN,
-        Constants.MODEL_KEY,
+        Constants.MODEL_NAME,
         LLMTarget.LLAMA_CPP,
         LLMQuantType.GGUF_QUANT_Q4_K_M // Change Quant type what you want
     ) {
